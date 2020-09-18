@@ -1,0 +1,49 @@
+﻿@{
+    /*
+     импорт представлений(зависимостей) перешол в отдельный файл _ViewImports теперь из _ViewImports все зависимости там прописанные будут подключаться к каждому представлению по умолчанию
+     */
+
+    // Layout = "_Layout"; теперь по умолчанию этот код будет вынесен в _ViewStart и теперь при запуске приложния (Layout = "_Layout") будет отрабатывать по умолчанию
+    /*
+        @using testTask.Data.Models
+        @model IEnumerable<Product>
+
+        подключаю сначала модели потом конктретную модель
+
+        IEnumerable нужен чтобы я мог переберать коллекцию обьектов
+
+     */
+}
+
+
+
+    <div class="row">
+        <h1>Все инфо продукты.</h1>
+        <h2>@Model.currentCategory</h2>
+    </div>
+    <div class="row mb-2">
+        @{// где @{ обязательно пишу их без пробела иначе будет ошибка
+            // Model это то что возвразает функция ViewResult List(), ( return View(product);) из  контроллера productController, которая возвращает
+
+            foreach (var product in Model.AllProducts)
+            {
+                <div class="col-md-6 card__product">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250 card__block">
+                        <div class="card-body d-flex flex-column align-items-start card__content">
+                            <h3 class="mb-0 text-dark">
+                                @product.name
+                            </h3>
+                            <div class="mb-1 text-muted">Цена: @product.price.ToString("c")</div>
+                            <div class="mb-1 text-muted">@product.data</div>
+                            <p class="card-text mb-auto">>@product.description</p>
+                            <a href="#">Подробнее.</a>
+                        </div>
+                        <img class="card-img-right card__img flex-auto d-none d-md-block " style=" background-image: url(' @product.img ')"></img>
+               
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+

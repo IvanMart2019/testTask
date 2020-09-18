@@ -1,0 +1,28 @@
+﻿$black: rgba(0, 0, 0, .85)
+$gray: #999
+$white: #fff
+
+.site-header
+	background-color: $black
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);
+	a 
+		color: $gray
+		transition: ease-in-out color .15s;
+	a:hover
+		color: $white
+		text-decoration: none;
+.card__product
+    display: flex;
+    flex: 1 1 auto;
+.card__img
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	width: 35%;
+.card__block
+	width: 100%;
+.card__content
+	width: 65%
+nav a
+	text-transform: uppercase
